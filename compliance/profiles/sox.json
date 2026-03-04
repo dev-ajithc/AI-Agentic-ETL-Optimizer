@@ -1,0 +1,14 @@
+{
+  "profile_id": "sox",
+  "name": "Sarbanes-Oxley Act",
+  "jurisdiction": "US",
+  "rules": ["SOX-001", "SOX-002"],
+  "description": "SOX compliance requirements for financial data pipelines",
+  "key_requirements": [
+    "Audit trail columns on all output tables",
+    "Idempotent write operations",
+    "Change tracking and version control",
+    "Access control documentation",
+    "Data lineage and provenance"
+  ]
+}

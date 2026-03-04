@@ -1,0 +1,14 @@
+{
+  "profile_id": "gdpr",
+  "name": "General Data Protection Regulation",
+  "jurisdiction": "EU",
+  "rules": ["GDPR-001", "GDPR-002", "GDPR-003"],
+  "description": "EU GDPR compliance requirements for data pipelines",
+  "key_requirements": [
+    "PII masking for all personal data",
+    "Data retention policy documentation",
+    "Cross-border transfer disclosure",
+    "Right to erasure support",
+    "Audit trail for data access"
+  ]
+}

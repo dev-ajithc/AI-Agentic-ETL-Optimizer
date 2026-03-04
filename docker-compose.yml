@@ -1,0 +1,29 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ai-etl-optimizer:latest
+    ports:
+      - "8501:8501"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - MAX_TOKENS_PER_RUN=${MAX_TOKENS_PER_RUN:-8000}
+      - SPARK_VALIDATION_TIMEOUT_S=${SPARK_VALIDATION_TIMEOUT_S:-60}
+      - SQLITE_PATH=data/optimizer.db
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - PII_SCAN_ENABLED=${PII_SCAN_ENABLED:-true}
+      - COMPLIANCE_PROFILES=${COMPLIANCE_PROFILES:-gdpr,hipaa,sox}
+      - PROMPT_VERSION=${PROMPT_VERSION:-1}
+      - ARTIFACT_RETENTION_DAYS=${ARTIFACT_RETENTION_DAYS:-90}
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./exports:/app/exports
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s

@@ -1,0 +1,21 @@
+{
+  "profile_id": "hipaa",
+  "name": "Health Insurance Portability and Accountability Act",
+  "jurisdiction": "US",
+  "rules": ["HIPAA-001", "HIPAA-002"],
+  "description": "HIPAA compliance requirements for healthcare data pipelines",
+  "phi_fields": [
+    "name", "address", "dob", "date_of_birth", "phone",
+    "email", "ssn", "mrn", "medical_record", "patient_id",
+    "account_number", "certificate_number", "license",
+    "device_id", "url", "ip_address", "biometric",
+    "photo", "face_id", "diagnosis", "condition"
+  ],
+  "key_requirements": [
+    "De-identification of Protected Health Information (PHI)",
+    "Encryption at rest and in transit",
+    "Access controls and audit logging",
+    "Minimum necessary data principle",
+    "Business Associate Agreement documentation"
+  ]
+}
